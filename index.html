@@ -1,0 +1,61 @@
+<html lang="en" ng-app="madLibs">
+<head>
+    <meta charset="UTF-8">
+    <title>ngMadLibs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 border">
+                <img src="images/smiley.png" height="130" width="130" alt="smiley face" />
+            </div>
+            <div class="col-md-9 border" id="logo-wrapper">
+                 <img src="images/logo.png" height="50" width="150" alt="madlibs logo" />
+                 <h1 id="logo-header">Automate This!</h1>
+            </div>
+        </div>
+        
+        <div class="row text-center">
+            <div class="col-md-12 border">
+                <h3>Provide the following words:</h3>
+                <div class="row">
+                    <input type="text" class="col-sm-4 sm-border"  ng-model="maleName" reuqired value="maleName"/>
+                    <input type="text" class="col-sm-4 sm-border" value="Dirty task"  ng-model="dirtyTask" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" value="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" reuqired />
+                </div>
+                <div class="row">
+                    <input type="text" class="col-sm-4 sm-border" value="Job title"  ng-model="jobTitle" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" value="Celebrity"  ng-model="celebrity" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" value="Huge number"  ng-model="hugeNumber" reuqired />
+                </div>
+                <div class="row">
+                    <input type="text" class="col-sm-4 sm-border" value="Tedious task"  ng-model="tediousTask" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" value="Useless skill"  ng-model="uselessSkill" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" value="Adjective"  ng-model="adjective" reuqired />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row text-center">
+            <div class="col-md-12 border para">
+                <p>{{ maleName }} was a {{ jobTitle }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ malename }} met with his life mentor {{ celebrity }} who told 'em to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead.</p>
+                <br/>
+                <p>What a great decision! With his new skills, {{ maleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster.</p>
+            </div>
+        </div>
+    </div>  
+    
+
+    
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    
+    <!--modules-->
+    <script src="app.js"></script>
+    
+    <!--controllers-->
+</body>
+</html>

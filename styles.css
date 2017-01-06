@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Amaranth|Permanent+Marker');
+
+.container {
+    margin-top: 17px;
+    margin-bottom: 17px;
+    font-family: 'Amaranth', sans-serif;
+}
+
+.border {
+    border: solid 2px black;
+}
+
+.sm-border {
+    border: solid 2px black;
+    padding: 8px;
+    width: 136px;
+    margin: 20px 93px;
+}
+
+#logo-header {
+    margin-top: -4px;
+}
+
+#logo-wrapper {
+    padding: 17.5px;
+}
+.para {
+    padding: 50px;
+    font-size: 20px;
+    
+}
+
