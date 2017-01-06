@@ -31,3 +31,18 @@
     
 }
 
+.gender-option {
+    list-style-type: none;
+    display: inline;
+}
+
+.gender-option li {
+    display: inline-block;
+    color: red;
+    margin: 0px 19px;
+}
+
+.gender-option li:hover {
+    cursor: pointer;
+    opacity: .5;
+}
