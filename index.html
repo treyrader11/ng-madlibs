@@ -21,28 +21,28 @@
             <div class="col-md-12 border">
                 <h3>Provide the following words:</h3>
                 <div class="row">
-                    <input type="text" class="col-sm-4 sm-border"  ng-model="maleName" reuqired value="maleName"/>
-                    <input type="text" class="col-sm-4 sm-border" value="Dirty task"  ng-model="dirtyTask" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" value="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Male name" ng-model="maleName" reuqired value="maleName"/>
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Dirty task"  ng-model="dirtyTask" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" reuqired />
                 </div>
                 <div class="row">
-                    <input type="text" class="col-sm-4 sm-border" value="Job title"  ng-model="jobTitle" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" value="Celebrity"  ng-model="celebrity" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" value="Huge number"  ng-model="hugeNumber" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Job title"  ng-model="jobTitle" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Celebrity"  ng-model="celebrity" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Huge number"  ng-model="hugeNumber" reuqired />
                 </div>
                 <div class="row">
-                    <input type="text" class="col-sm-4 sm-border" value="Tedious task"  ng-model="tediousTask" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" value="Useless skill"  ng-model="uselessSkill" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" value="Adjective"  ng-model="adjective" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Tedious task"  ng-model="tediousTask" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Useless skill"  ng-model="uselessSkill" reuqired />
+                    <input type="text" class="col-sm-4 sm-border" placeholder="Adjective"  ng-model="adjective" reuqired />
                 </div>
             </div>
         </div>
         
         <div class="row text-center">
             <div class="col-md-12 border para">
-                <p>{{ maleName }} was a {{ jobTitle }} who loved technology. Although he loved parts of his job, he absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ malename }} met with his life mentor {{ celebrity }} who told 'em to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead.</p>
+                <p><span style="color: red">{{ maleName }}</span> was a <span style="color:red">{{ jobTitle }}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span style="color:red">{{ tediousTask }}</span> and <span style="color:red">{{ dirtyTask }}</span>. So, <span style="color:red">{{ maleName }}</span> met with his life mentor <span style="color: red">{{ celebrity }}</span> who told 'em to learn how to <span style="color:red">{{ uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span style="color:red">{{ uselessSkill }}</span> so he studied programming instead.</p>
                 <br/>
-                <p>What a great decision! With his new skills, {{ maleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster.</p>
+                <p>What a great decision! With his new skills, <span style="color:red">{{ maleName }}</span> built a(n) <span style="color:red">{{ adjective }}</span> robot named <span style="color:red">{{ obnoxiousCelebrity }}</span> that not only loved <span style="color:red">{{ dirtyTask }}</span> but did it <span style="colo:red">{{ hugeNumber }}</span> times faster.</p>
             </div>
         </div>
     </div>  
