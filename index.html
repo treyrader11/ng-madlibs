@@ -28,24 +28,41 @@
                     </ul>
                     <div ng-switch="gender">
                         <div ng-switch-when="male">
-                            <input type="text" class="col-sm-4 sm-border" placeholder="Male name" ng-model="maleName" reuqired />
+                            <div class="row">
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Male name" ng-model="maleName" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Dirty task"  ng-model="dirtyTask" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" reuqired />
+                            </div>
+                            <div class="row">
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Job title"  ng-model="jobTitle" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Celebrity"  ng-model="celebrity" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Huge number"  ng-model="hugeNumber" reuqired />
+                            </div>
+                            <div class="row">
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Tedious task"  ng-model="tediousTask" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Useless skill"  ng-model="uselessSkill" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Adjective"  ng-model="adjective" reuqired />
+                            </div>
                         </div>
+                        
                         <div ng-switch-when="female">
-                            <input type="text" class="col-sm-4 sm-border" placeholder="Female name" ng-model="femaleName" reuqired />
+                            <div class="row">
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Female name" ng-model="femaleName" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Dirty task"  ng-model="dirtyTask" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" reuqired />
+                            </div>
+                            <div class="row">
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Job title"  ng-model="jobTitle" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Celebrity"  ng-model="celebrity" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Huge number"  ng-model="hugeNumber" reuqired />
+                            </div>
+                            <div class="row">
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Tedious task"  ng-model="tediousTask" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Useless skill"  ng-model="uselessSkill" reuqired />
+                                <input type="text" class="col-sm-4 sm-border" placeholder="Adjective"  ng-model="adjective" reuqired />
+                            </div>
                         </div>
                     </div>
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Dirty task"  ng-model="dirtyTask" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" reuqired />
-                </div>
-                <div class="row">
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Job title"  ng-model="jobTitle" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Celebrity"  ng-model="celebrity" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Huge number"  ng-model="hugeNumber" reuqired />
-                </div>
-                <div class="row">
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Tedious task"  ng-model="tediousTask" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Useless skill"  ng-model="uselessSkill" reuqired />
-                    <input type="text" class="col-sm-4 sm-border" placeholder="Adjective"  ng-model="adjective" reuqired />
                 </div>
             </div>
         </div>
@@ -53,8 +70,14 @@
         <div class="row text-center">
             <div class="col-md-12 border para">
                 <div ng-switch="gender">
-                    <div ng-switch-when="male">{{ forMale }}</div>
-                    <div ng-switch-when="female">{{ forFemale }}</div>  
+                    <div ng-switch-when="male">
+                        <p><span style="color:red">{{ maleName }}</span> was a <span style="color:red">{{ jobTitle }}</span> who loved technology. Although he loved parts of his job, he absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ maleName }} met with his life mentor {{ celebrity }} who told 'em to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead.</p> 
+                        <p>What a great decision! With his new skills, {{ maleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster.</p>
+                    </div>
+                    <div ng-switch-when="female">
+                        <p>{{ femaleName }} was a {{ jobTitle }} who loved technology. Although she loved parts of her job, she absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ femaleName }} met with her life mentor {{ celebrity }} who told her to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so she studied programming instead.</p> 
+                        <p>What a great decision! With her new skills, {{ femaleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster.</p>
+                    </div>  
                 </div>
             </div>
         </div>
