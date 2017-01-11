@@ -1,4 +1,4 @@
-<html lang="en" ng-app="madLibs">
+<html lang="en" ng-app="madLibsApp">
 <head>
     <meta charset="UTF-8">
     <title>ngMadLibs</title>
@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-    <div class="container" ng-controller="MyCtrl as vm">
-        <div class="row text-center">
+    <div class="container" ng-controller="MadlibsCtrl">
+    
+        <header class="row text-center">
             <div class="col-md-3 border">
                 <img src="images/smiley.png" height="130" width="130" alt="smiley face" />
             </div>
@@ -15,71 +16,74 @@
                  <img src="images/logo.png" height="50" width="150" alt="madlibs logo" />
                  <h1 id="logo-header">Automate This!</h1>
             </div>
-        </div>
-    
+        </header>
         
-        <div class="row text-center">
+    
+    
+        <!--if inputs==true, show them. the gender buttons unlock this section-->
+        <section class="row text-center" ng-hide="!showInputs">
             <div class="col-md-12 border">
-                <h3>{{ vm.directions }}</h3>
-                <div class="row">
-                    <ul class="gender-option">
-                        <li><h3 ng-click="gender = 'male'">male<h3></li>OR
-                        <li><h3 ng-click="gender = 'female'">female</h3></li>
-                    </ul>
-                    <div ng-switch="gender">
-                        <div ng-switch-when="male">
+            
+                <form name="madlibsInputs" ng-submit="createStory()" novalidate>
+                    <h3>{{ directions }}</h3>
+                    <h3>Are you <button class="btn" ng-click="changeGender('male')" ng-class="gender == 'male' ? 'selected' : '' ">Male</button> OR <button class="btn" ng-click="changeGender('female')" ng-class="gender == 'female' ? 'selected' : '' ">Female</button></h3>
+                    
+                    
+                    <div class="row inputs">
+                        <div class="col-md-12">
                             <div class="row">
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Male name" ng-model="maleName" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Dirty task"  ng-model="dirtyTask" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" required />
+                                <input name="person_name" class="col-sm-4 sm-border" placeholder="Person name" ng-model="person_name" required />
+                                <input name="dirty_task" class="col-sm-4 sm-border" placeholder="Dirty_task"  ng-model="dirty_task" required />
+                                <input name="obnoxious_celebrity" class="col-sm-4 sm-border" placeholder="Obnoxious celebrity"  ng-model="obnoxious_celebrity" required />
                             </div>
                             <div class="row">
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Job title"  ng-model="jobTitle" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Celebrity"  ng-model="celebrity" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Huge number"  ng-model="hugeNumber" required />
+                                <input name="job_title" class="col-sm-4 sm-border" placeholder="Job title"  ng-model="job_title" required />
+                                <input name="celebrity" class="col-sm-4 sm-border" placeholder="Celebrity"  ng-model="celebrity" required />
+                                <input name="huge_number" type="number" class="col-sm-4 sm-border" placeholder="Huge number"  ng-model="huge_number" required />
                             </div>
                             <div class="row">
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Tedious task"  ng-model="tediousTask" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Useless skill"  ng-model="uselessSkill" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Adjective"  ng-model="adjective" required />
-                            </div>
-                        </div>
-                        
-                        <div ng-switch-when="female">
-                            <div class="row">
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Female name" ng-model="femaleName" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Dirty task"  ng-model="dirtyTask" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Obnoxious celebrity"  ng-model="obnoxiousCelebrity" required />
-                            </div>
-                            <div class="row">
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Job title"  ng-model="jobTitle" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Celebrity"  ng-model="celebrity" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Huge number"  ng-model="hugeNumber" required />
-                            </div>
-                            <div class="row">
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Tedious task"  ng-model="tediousTask" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Useless skill"  ng-model="uselessSkill" required />
-                                <input type="text" class="col-sm-4 sm-border" placeholder="Adjective"  ng-model="adjective" required />
+                                <input name="tedious_task" class="col-sm-4 sm-border" placeholder="Tedious task"  ng-model="tedious_task" required />
+                                <input name="useless_skill" class="col-sm-4 sm-border" placeholder="Useless skill"  ng-model="useless_skill" required />
+                                <input name="adjective" class="col-sm-4 sm-border" placeholder="Adjective"  ng-model="adjective" required />
                             </div>
                         </div>
                     </div>
-                </div>
+                    
+                    <div class="row">        
+                        <div class="errors col-md-8" ng-repeat="input in inputs">
+                            <p ng-show="{{ input.error }}">*{{ input.name }} input feild is required*</p>    
+                        </div>
+                         <div class="col-md-4">
+                            <input type="submit" class="btn" value="Generate My Mad Lib" />
+                        </div>
+                    </div>
+    
+                </form>    
             </div>
-        </div>
+        </section>
         
-        <div class="row text-center">
-            <div class="col-md-12 border para" ng-switch="gender">
-                <div ng-switch-when="male">
-                    <p><span style="color:red">{{ maleName }}</span> was a <span style="color:red">{{ jobTitle }}</span> who loved technology. Although he loved parts of his job, he absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ maleName }} met with his life mentor {{ celebrity }} who told 'em to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so he studied programming instead.</p> 
-                    <p>What a great decision! With his new skills, {{ maleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster.</p>
-                </div>
-                <div ng-switch-when="female">
-                    <p>{{ femaleName }} was a {{ jobTitle }} who loved technology. Although she loved parts of her job, she absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ femaleName }} met with her life mentor {{ celebrity }} who told her to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so she studied programming instead.</p> 
-                    <p>What a great decision! With her new skills, {{ femaleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster.</p>
-                </div>  
-            </div>
-        </div>
+        
+        
+        <section ng-hide="showInputs">
+            <div class="row text-center border results">
+                <div class="col-md-12">
+                    <p><span class="lib">{{ person_name }}</span> was a <span class="lib">{{ job_title }}</span> who loved technology. Although {{ gender=='female' ? 's' : '' }}he loved parts of {{ gender=='female' ? 'her' : 'his' }} job, {{ gender=='female' ? 's' : '' }}he absolutely hated  <span class="lib">{{ tedious_task }}</span> and <span class="lib">{{ dirty_task }}</span>. So, {{ person_name }} met with {{ gender=='female' ? 'her' : 'his' }} life mentor <span class="lib">{{ celebrity }}</span> who told {{ gender=='female' ? 'her' : 'him' }} to learn how to <span class="lib">{{ useless_skill }}</span> with Thinkful. Thinkful didn't offer a course on <span class="lib">{{ useless_skill }}</span> so {{ gender=='female' ? 's' : '' }}he studied programming instead.</p>
+     		         <br/>
+     		         <p>What a great decision! With {{ gender=='female' ? 'her' : 'his' }} new skills, <span class="lib">{{ person_name }}</span> built a(n) <span class="lib">{{ adjective }}</span> robot named <span class="lib">{{ obnoxious_celebrity }}</span> that not only loved <span class="lib">{{ dirty_task }}</span> but did it <span class="lib">{{ huge_number | number }}</span> faster.</p>
+      	         </div>
+      	         <div class="row">
+      	             <button ng-click="changeLibs()" class="madlibsBtn">Start Over</button>
+      	        </div>
+      	    </div>
+        </section>
+            
+        
+        
+        
+        
     </div>
+    
+
   
     
 
@@ -87,11 +91,12 @@
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-messages.min.js"></script>
     
     <!--modules-->
     <script src="./app.js"></script>
     
     <!--controllers-->
-    <script src="controllers/myCtrl.js"></script>
+    <script src="controllers/madlibsCtrl.js"></script>
 </body>
 </html>

@@ -7,6 +7,48 @@
     font-family: 'Amaranth', sans-serif;
 }
 
+.btn {
+    background: black;
+    border-color: #EEE;
+    color: white;
+    /*position: relative;*/
+   /* left: 32%;*/
+}
+
+.btn:focus {
+    outline: none;
+    background: black;
+    color: white;
+}
+
+.btn:hover {
+    box-shadow: 2px 2px 15px #666;
+}
+
+.btn:active,
+.btn:hover {
+    background: black;
+    color: white;
+    outline: none;
+}
+
+.btn-primary:visited,
+.btn-primary:active,
+.btn-primary:hover {
+    background: black;
+}
+
+.selected {
+    background: #833;
+    color: white;
+}
+
+.selected:focus,
+.selected:hover {
+    color: white;
+    background: #833;
+}
+
 .border {
     border: solid 2px black;
 }
@@ -25,7 +67,7 @@
 #logo-wrapper {
     padding: 17.5px;
 }
-.para {
+.results {
     padding: 50px;
     font-size: 20px;
     
@@ -52,3 +94,18 @@
     border:1px solid red;
     box-shadow: 0 0 10px #719ECE;
 }
+
+.errors {
+    font-size: 10px;
+    color: red;
+}
+
+.lib {
+    text-decoration: underline;    
+}
+
+.madlibsBtn {
+    float: right;
+}
+
+

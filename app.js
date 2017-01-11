@@ -1,1 +1,1 @@
-var app = angular.module('madLibs', []);
+var app = angular.module('madLibsApp', ['ngMessages']);
