@@ -95,9 +95,17 @@
     box-shadow: 0 0 10px #719ECE;
 }
 
+hr {
+    font-size: 2px;
+    height: 3px;
+    width: 86%;
+    background-color: black;
+}
+
 .errors {
     font-size: 10px;
     color: red;
+    
 }
 
 .lib {
